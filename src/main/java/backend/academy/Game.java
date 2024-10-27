@@ -97,7 +97,6 @@ public class Game {
         return cur_user_lives;
     }
 
-
     public void playGame() {
         while (!gameOver()) {
             output.printWord(user_word);

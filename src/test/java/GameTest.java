@@ -1,5 +1,5 @@
-package backend.academy;
-
+import backend.academy.Game;
+import backend.academy.WordsProcessing.Dictionary;
 import org.junit .Test;
 import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
@@ -12,20 +12,21 @@ public class GameTest {
     @Test
     public void testRandCategory() {
         Dictionary Dictionary = new Dictionary();
-        String category = Dictionary.getRandomCategory();
-        assertTrue(Arrays.asList("easy", "medium", "hard").contains(category));
+        String level = Dictionary.getRandomLevel();
+        assertTrue(Arrays.asList("easy", "medium", "hard").contains(level));
     }
 
     @Test
     public void testRandWord() {
         Dictionary Dictionary = new Dictionary();
-        String word = Dictionary.getRandomWord("easy");
+        String cat = Dictionary.getRandomCategory();
+        String word = Dictionary.getRandomWord(cat, "easy");
         assertNotNull(word);
         assertFalse(word.isEmpty());
-        word = Dictionary.getRandomWord("medium");
+        word = Dictionary.getRandomWord(cat, "medium");
         assertNotNull(word);
         assertFalse(word.isEmpty());
-        word = Dictionary.getRandomWord("hard");
+        word = Dictionary.getRandomWord(cat, "hard");
         assertNotNull(word);
         assertFalse(word.isEmpty());
     }
